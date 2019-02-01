@@ -1,0 +1,25 @@
+{
+  "name": "groupproject3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jay-Goss/GroupProject3.git"
+  },
+  "author": "Tesfa, Jay, Garcian, David, Logan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jay-Goss/GroupProject3/issues"
+  },
+  "homepage": "https://github.com/Jay-Goss/GroupProject3#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "passport": "^0.4.0",
+    "require": "^2.4.20",
+    "sequelize": "^4.42.0"
+  }
+}
