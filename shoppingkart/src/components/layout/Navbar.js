@@ -11,10 +11,9 @@ class Navbar extends Component {
               style={{
                 fontFamily: "monospace"
               }}
-              className="col s5 brand-logo center black-text"
-            >
-              <i className="material-icons">code</i>
-              MERN
+              className="col s5 brand-logo center black-text">
+              <img src="https://github.com/Jay-Goss/GroupProject3/raw/master/shoppingkart/public/images/logo.png" width="" height=""  alt=""></img>
+              {/* <i className="material-icons"></i> */}
             </Link>
           </div>
         </nav>
