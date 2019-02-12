@@ -22,7 +22,7 @@ export default withAuth(
     }
 
     login = async () => {
-      this.props.auth.login('/');
+      this.props.auth.login('/user');
     };
 
     logout = async () => {
@@ -35,8 +35,8 @@ export default withAuth(
       const mainContent = this.state.authenticated ? (
         <div>
           <p className="lead">
-            You have entered the member site,{' '}
-            <Link to="/staff">click here</Link>
+            You have entered the Member site,{' '}
+            <Link to="/user">click here</Link>
           </p>
           <button className="btn btn-light btn-lg" onClick={this.logout}>
             Logout
@@ -47,6 +47,11 @@ export default withAuth(
           
           <button className="btn btn-dark btn-lg" onClick={this.login}>
             Login
+          </button>
+          <n/><n/>
+          
+          <button className="btn btn-dark btn-lg" onClick={this.signup}>
+            SignUp
           </button>
         </div>
       );
