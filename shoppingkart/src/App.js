@@ -4,7 +4,7 @@ import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
 
 import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
-import Staff from './components/pages/User';
+import User from './components/pages/User';
 import Login from './components/auth/Login';
 
 import './App.css';
@@ -18,8 +18,8 @@ class App extends Component {
     return (
       <Router>
         <Security
-          issuer="https://dev-566071.okta.com/oauth2/default"
-          client_id="0oaancr4wiSuN190m356"
+          issuer="https://dev-238609.okta.com/oauth2/default"
+          client_id="0oaaom1d3NWfg6SoP356"
           redirect_uri={window.location.origin + '/implicit/callback'}
           onAuthRequired={onAuthRequired}
         >
@@ -27,11 +27,11 @@ class App extends Component {
             <Navbar />
             <div className="container">
               <Route path="/" exact={true} component={Home} />
-              <SecureRoute path="/staff" exact={true} component={Staff} />
+              <SecureRoute path="/user" exact={true} component={User} />
               <Route
                 path="/login"
                 render={() => (
-                  <Login baseUrl="https://dev-566071.okta.com" />
+                  <Login baseUrl="https://dev-238609.okta.com" />
                 )}
               />
               <Route path="/implicit/callback" component={ImplicitCallback} />

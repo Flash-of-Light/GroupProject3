@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Member extends Component {
+class User extends Component {
   state = {
     currentUserName: '',
     currentUserEmail: ''
@@ -15,7 +15,7 @@ class Member extends Component {
   }
 
   render() {
-    const { currentUserEmail, currentUserName } = this.state;
+    const { currentUserName } = this.state;
 
     return (
       <div>
@@ -25,4 +25,4 @@ class Member extends Component {
   }
 }
 
-export default Member;
+export default User;
