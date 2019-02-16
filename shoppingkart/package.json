@@ -5,10 +5,14 @@
   "dependencies": {
     "@okta/okta-react": "^1.1.4",
     "@okta/okta-signin-widget": "^2.15.0",
+    "axios": "^0.18.0",
+    "node-sass": "^4.11.0",
     "react": "^16.8.1",
+    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.8.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "react-transition-group": "^2.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
