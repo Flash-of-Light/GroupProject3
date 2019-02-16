@@ -4,6 +4,6 @@ import axios from "axios";
 // It accepts a "query" or term to search the recipe api for
 export default {
   getBestBuy: function(query) {
-    return axios.get("/api/products", { params: { q: query } });
+    return axios.post("/api/products", { params: { q: query } });
   }
 };

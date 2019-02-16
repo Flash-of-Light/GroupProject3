@@ -1,7 +1,5 @@
 const router = require("express").Router();
-const cartRoutes = require("./cart");
+const apiRoutes = require("./apiRoutes");
 
-// Cart routes
-router.use("/cart", cartRoutes);
-
+router.use("/", apiRoutes);
 module.exports = router;

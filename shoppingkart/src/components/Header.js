@@ -4,6 +4,8 @@ import Counter from "./Counter";
 import EmptyCart from "../empty-states/EmptyCart";
 import CSSTransitionGroup from "react-transition-group";
 import { findDOMNode } from "react-dom";
+import API from "./utils/API";
+
 
 class Header extends Component {
   constructor(props) {
@@ -20,9 +22,12 @@ class Header extends Component {
       showCart: !this.state.showCart
     });
   }
-  handleSubmit(e) {
-    e.preventDefault();
-  }
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   API.getBestBuy(this.state.refs.searchBox.value)
+  //     .then(res => this.setState({ recipes: res.data }))
+  //     .catch(err => console.log(err));
+  // }
   handleMobileSearch(e) {
     e.preventDefault();
     this.setState({
@@ -153,12 +158,12 @@ class Header extends Component {
                 ref="searchBox"
                 placeholder="Search"
                 className="search-keyword"
-                onChange={this.props.handleSearch}
+                onChange={this.props.handleSearch} //changed from handleSearch to handleSearchNav//
               />
               <button
                 className="search-button"
                 type="submit"
-                onClick={this.handleSubmit.bind(this)}
+                onClick={this.props.handleSubmitHeader}
               />
             </form>
           </div>

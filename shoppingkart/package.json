@@ -2,10 +2,13 @@
   "name": "shoppingcart",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "@okta/okta-react": "^1.1.4",
     "@okta/okta-signin-widget": "^2.15.0",
     "axios": "^0.18.0",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.4.13",
     "node-sass": "^4.11.0",
     "react": "^16.8.1",
     "react-custom-scrollbars": "^4.2.1",
@@ -15,7 +18,9 @@
     "react-transition-group": "^2.5.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon server.js \" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -28,5 +33,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.10"
+  }
 }
