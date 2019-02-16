@@ -7,6 +7,7 @@ import Products from "./components/Products";
 import Footer from "./components/Footer";
 import QuickView from "./components/QuickView";
 import "./scss/style.scss";
+import API from "./components/utils/API";
 
 
 class Shop extends Component {
@@ -22,9 +23,10 @@ class Shop extends Component {
       cartBounce: false,
       quantity: 1,
       quickViewProduct: {},
-      modalActive: false
+      modalActive: false,
+      results: null
     };
-    this.handleSearch = this.handleSearch.bind(this);
+    // this.handleSearch = this.handleSearch.bind(this);
     this.handleMobileSearch = this.handleMobileSearch.bind(this);
     this.handleCategory = this.handleCategory.bind(this);
     this.handleAddToCart = this.handleAddToCart.bind(this);
@@ -51,7 +53,7 @@ class Shop extends Component {
   }
 
   // Search by Keyword
-  handleSearch(event) {
+  handleSearch = event => {
     this.setState({ term: event.target.value });
   }
   // Mobile Search Reset
@@ -99,7 +101,7 @@ class Shop extends Component {
   }
   handleRemoveProduct(id, e) {
     let cart = this.state.cart;
-    let index = cart.findIndex(x => x.id == id);
+    let index = cart.findIndex(x => x.id === id);
     cart.splice(index, 1);
     this.setState({
       cart: cart
@@ -154,6 +156,15 @@ class Shop extends Component {
     });
   }
 
+  handleSubmitHeader = e => {
+    e.preventDefault();
+    API.getBestBuy(this.state.term)
+      .then(res => {
+        console.log(res.data);
+        this.setState({ results: res.data })})
+      .catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div className="container">
@@ -169,6 +180,7 @@ class Shop extends Component {
           categoryTerm={this.state.category}
           updateQuantity={this.updateQuantity}
           productQuantity={this.state.moq}
+          handleSubmitHeader={this.handleSubmitHeader}
         />
         <Products
           productsList={this.state.products}
